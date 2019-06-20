@@ -18,7 +18,6 @@
 </xsl:template>
 
 <xsl:template match="article|book">
-<xsl:message>yo</xsl:message>
   <xsl:apply-templates select="slideshow" />
 </xsl:template>
 
@@ -262,8 +261,7 @@
       <xsl:apply-templates select="." mode="type-name" /> (<xsl:value-of select="@source-number"/>):
       <xsl:apply-templates select="." mode="title-full" />
     </h3>
-    <!-- <xsl:apply-templates select="statement"/> -->
-    <xsl:apply-templates/>
+    <xsl:apply-templates select="statement"/>
 </div>
 </xsl:template>
 
