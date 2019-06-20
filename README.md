@@ -17,6 +17,12 @@ a `pretext/slideshow`
 Look at `examples/hello-world.pxt` for an example of a
 PreTeXt slideshow.
 
+Run this to produce a Reveal.js slideshow:
+
+```
+TODO
+```
+
 ## pretext-book-to-slides
 
 Without any additional configuration, 
@@ -58,7 +64,23 @@ PreTeXt and will continue to be transpiled by e.g.
 `mathbook-html` without issue.
 
 See `examples/hello-world-book.pxt` for the PreTeXt book
-that was transpiled into `hello-world.pxt`.
+that was transpiled into `hello-world-slides.pxt` using the
+following command.
+
+```
+xsltproc -o hello-world-slides.xml --xinclude ../pretext-book-to-slideshow.xsl hello-world-book.xml
+```
+
+## Viewing the slideshow in your browser.
+
+If you have Python 3 installed, this simple command will
+spin up a local server that will allow you to view
+your Reveal.js slideshow (or anything really) in your
+browser at <http://localhost:3000>.
+
+```
+python3 -m http.server 3000
+```
 
 ## Credits
 
