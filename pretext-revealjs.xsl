@@ -8,7 +8,8 @@
     extension-element-prefixes="exsl date"
 >
 
-<xsl:import href="../xsl/mathbook-html.xsl" />
+
+<xsl:import href="../pretext/xsl/mathbook-html.xsl" />
 
 <xsl:output method="html" encoding="utf-8"/>
 
@@ -17,6 +18,7 @@
 </xsl:template>
 
 <xsl:template match="article|book">
+<xsl:message>yo</xsl:message>
   <xsl:apply-templates select="slideshow" />
 </xsl:template>
 
@@ -37,10 +39,9 @@
 	<title><xsl:apply-templates select="." mode="title-full" /></title>
 	<!-- metadata -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes"></meta>
-  <link href="css/reset.css" rel="stylesheet"></link>
-  <link href="css/reveal.css" rel="stylesheet"></link>
-  <link href="css/theme/simple.css" rel="stylesheet"></link>
-  <link href="plugin/title-footer/title-footer.css" rel="stylesheet"></link>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.8.0/css/reset.min.css" rel="stylesheet"></link>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.8.0/css/reveal.min.css" rel="stylesheet"></link>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.8.0/css/theme/simple.min.css" rel="stylesheet"></link>
 
   <!--  Some style changes from regular pretext-html -->
   <style>
@@ -52,11 +53,37 @@
       border-radius: 2px 10px 2px;
       padding: 4px;
     }
+    .definition {
+      border-width: 0.5px;
+      border-style: solid;
+      border-radius: 2px 10px 2px;
+      background: #00608010;
+      padding: 1%;
+    }
+    .theorem, .corollary {
+      border-width: 0.5px;
+      border-style: solid;
+      border-radius: 2px 10px 2px;
+      background: #ff000010;
+      padding: 1%;
+    }
+    .proof {
+      background: #ffffff90;
+    }
+    .activity {
+      border-width: 0.5px;
+      border-style: solid;
+      border-radius: 2px 10px 2px;
+      background: #60800010;
+      padding: 1%;
+    }
   </style>
 
 	</head>
 
 	<body>
+    <xsl:apply-templates select="/pretext/docinfo/macros"/>
+
     <div class="reveal">
       <div class="slides">
       <xsl:apply-templates select="." mode="title-slide" />
@@ -65,7 +92,7 @@
   </div>
 	</body>
 
-  <script src="js/reveal.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.8.0/js/reveal.min.js"></script>
 
   <script>
     Reveal.initialize({
@@ -77,20 +104,21 @@
             width: "80%",
             height: "90%",
     				dependencies: [
-    					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-    					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-    					{ src: 'plugin/highlight/highlight.js', async: true },
-    					{ src: 'plugin/search/search.js', async: true },
-    					{ src: 'plugin/zoom-js/zoom.js', async: true },
-    					{ src: 'plugin/notes/notes.js', async: true },
-              { src: 'plugin/title-footer/title-footer.js', async: true, callback: function() {title_footer.initialize('', ''); } },
-              { src: 'plugin/math/math.js', async: true },
+              { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.8.0/plugin/math/math.min.js', async: true },
               ]
             });
   </script>
 
 	</html>
 
+</xsl:template>
+
+<xsl:template match="pretext/docinfo/macros">
+  <div style="display: none;">
+    <xsl:call-template name="begin-inline-math"/>
+    <xsl:value-of select="."/>
+    <xsl:call-template name="end-inline-math"/>
+  </div>
 </xsl:template>
 
 <xsl:template match="section">
@@ -157,34 +185,28 @@
 </xsl:template>
 
 <xsl:template match="li">
-  <xsl:choose>
-  <xsl:when test="../@slide-step">
-    <li class="fragment">
-      <xsl:apply-templates/>
-    </li>
-  </xsl:when>
-  <xsl:otherwise>
-    <li>
-      <xsl:apply-templates/>
-    </li>
-  </xsl:otherwise>
-</xsl:choose>
+  <li>
+    <xsl:if test="parent::*/@slide-step = 'true'">
+      <xsl:attribute name="class">
+        <xsl:text>fragment</xsl:text>
+      </xsl:attribute>
+    </xsl:if>
+    <xsl:apply-templates/>
+  </li>
 </xsl:template>
 
+
 <xsl:template match="p">
-  <xsl:choose>
-  <xsl:when test="@slide-step">
-    <p class="fragment">
-      <xsl:apply-templates/>
-    </p>
-  </xsl:when>
-  <xsl:otherwise>
-    <p>
-      <xsl:apply-templates/>
-    </p>
-  </xsl:otherwise>
-</xsl:choose>
+  <p>
+    <xsl:if test="@slide-step = 'true'">
+      <xsl:attribute name="class">
+        <xsl:text>fragment</xsl:text>
+      </xsl:attribute>
+    </xsl:if>
+    <xsl:apply-templates/>
+  </p>
 </xsl:template>
+
 
 
 <xsl:template match="img">
@@ -206,12 +228,18 @@
 <div style="display: table;">
   <xsl:for-each select="*">
     <div>
+      <xsl:if test="parent::*/@slide-step = 'true'">
+        <xsl:attribute name="class">
+          <xsl:text>fragment</xsl:text>
+        </xsl:attribute>
+      </xsl:if>
+
       <xsl:attribute name="style">
         <xsl:text>display:table-cell; vertical-align:top; width: </xsl:text>
           <xsl:value-of select="../@width" />
           <xsl:text>;</xsl:text>
       </xsl:attribute>
-      <xsl:apply-templates/>
+      <xsl:apply-templates select="."/>
     </div>
   </xsl:for-each>
 </div>
@@ -229,14 +257,13 @@
   <xsl:text>Definition</xsl:text>
 </xsl:template>
 <xsl:template match="definition">
-  <div style="border: 0.5px">
-	<div style="background: #00608010; width: 90%;">
+  <div class="boxed definition">
 		<h3>
       <xsl:apply-templates select="." mode="type-name" /> (<xsl:value-of select="@source-number"/>):
       <xsl:apply-templates select="." mode="title-full" />
     </h3>
-      <xsl:apply-templates select="statement"/>
-	</div>
+    <!-- <xsl:apply-templates select="statement"/> -->
+    <xsl:apply-templates/>
 </div>
 </xsl:template>
 
@@ -244,20 +271,27 @@
 <xsl:template match="theorem" mode="type-name">
   <xsl:text>Theorem</xsl:text>
 </xsl:template>
-<xsl:template match="cor" mode="type-name">
+<xsl:template match="corollary" mode="type-name">
   <xsl:text>Corollary</xsl:text>
 </xsl:template>
-<xsl:template match="theorem|cor">
-  <div style="border: 0.5px">
-	<div style="background: #ff000010; width: 90%;">
+<xsl:template match="theorem|corollary">
+  <div class="theorem">
+	<div>
 		<h3>
-      <xsl:apply-templates select="." mode="type-name" /> (<xsl:value-of select="@source-number"/>):
+      <xsl:choose>
+      <xsl:when test="@source-number">
+        <xsl:apply-templates select="." mode="type-name" />: (<xsl:value-of select="@source-number"/>):
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:apply-templates select="." mode="type-name" />:
+      </xsl:otherwise>
+    </xsl:choose>
       <xsl:apply-templates select="." mode="title-full" />
     </h3>
       <xsl:apply-templates select="statement"/>
 	</div>
   <xsl:if test="proof">
-  <div style="background: #00000010; width: 80%;">
+  <div class="proof">
     <xsl:apply-templates select="proof"/>
   </div>
 </xsl:if>
@@ -274,30 +308,30 @@
   <xsl:text>Note</xsl:text>
 </xsl:template>
 <xsl:template match="example|activity|note">
-  <div style="border: 0.5px">
-	<div style="background: #60800010; width: 90%;">
+  <div class="activity">
 		<h3>
       <xsl:apply-templates select="." mode="type-name" /> (<xsl:value-of select="@source-number"/>):
       <xsl:apply-templates select="." mode="title-full" />
     </h3>
       <xsl:apply-templates />
-	</div>
-</div>
+  </div>
 </xsl:template>
 
 <xsl:template match="fact" mode="type-name">
   <xsl:text>Fact</xsl:text>
 </xsl:template>
 <xsl:template match="fact">
-  <div style="border: 0.5px">
-	<div style="background: #00608010; width: 90%;">
+  <div class="definition">
 		<h3>
       <xsl:apply-templates select="." mode="type-name" /> (<xsl:value-of select="@source-number"/>):
       <xsl:apply-templates select="." mode="title-full" />
     </h3>
       <xsl:apply-templates/>
 	</div>
-</div>
+</xsl:template>
+
+<xsl:template match="xref">
+  [REF=TODO]
 </xsl:template>
 
 </xsl:stylesheet>

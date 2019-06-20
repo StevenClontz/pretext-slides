@@ -10,23 +10,24 @@
 <xsl:strip-space elements="*"/>
 
 <xsl:template match="/">
-<pretext>
-<slideshow>
-  <title><xsl:value-of select="pretext/book/title"/></title>
-  <xsl:if test="pretext/book/subtitle">
-    <subtitle><xsl:value-of select="pretext/book/subtitle"/></subtitle>
+<pretext xmlns:xi="http://www.w3.org/2001/XInclude">
+<xsl:copy-of select="pretext/docinfo"/>
+<article><slideshow>
+  <xsl:for-each select="pretext/book|pretext/article">
+  <title><xsl:value-of select="title"/></title>
+  <xsl:if test="subtitle">
+    <subtitle><xsl:value-of select="subtitle"/></subtitle>
   </xsl:if>
   <frontmatter>
-    <xsl:copy-of select="pretext/book/frontmatter/titlepage"/>
+    <xsl:copy-of select="frontmatter/titlepage"/>
     <!-- TODO support additional slides under title e.g. abstract -->	
   </frontmatter>
-  <xsl:for-each select="pretext/book/chapter">
+  <xsl:for-each select="chapter">
     <section>
       <slide>
         <xsl:attribute name="source-label">Chapter</xsl:attribute>
         <xsl:attribute name="source-number"><xsl:apply-templates select="." mode="number"/></xsl:attribute>
         <title><xsl:value-of select="title"/></title>
-        <p>Chapter <xsl:apply-templates select="." mode="number"/></p>
       </slide>
       <!-- TODO support additional slides under chapter e.g. introduction -->	
     </section>
@@ -52,7 +53,8 @@
       </section>
     </xsl:for-each>
   </xsl:for-each>
-</slideshow>
+  </xsl:for-each>
+</slideshow></article>
 </pretext>
 </xsl:template>
 
