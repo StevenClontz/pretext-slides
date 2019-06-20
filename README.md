@@ -3,31 +3,52 @@
 This is the (hopefully) temporary home of slide-related 
 XML transforms:
 
-1. `pretext-revealjs.xsl` transpiles a `pretext/slideshow`
-(using our new syntax)
-into Reveal.js slides
-2. `pretext-beamer.xsl` similarly transpiles a `pretext/slideshow`
+1. `pretext-revealjs.xsl` transpiles a `pretext/article/slideshow`
+(using a slight extension of vanilla PreTeXt) into Reveal.js slides
+2. `pretext-beamer.xsl` similarly transpiles a `pretext/article/slideshow`
 into a Beamer source file
 3. `pretext-book-to-slides.xsl` transpiles a `pretext/book`
 that has been sweetened with `slide` attributes into
-a `pretext/slideshow`
+a `pretext/article/slideshow`
 
-## pretext/slideshow
+## pretext/article/slideshow
 
-Look at `examples/hello-world.pxt` for an example of a
-PreTeXt slideshow.
+Look at `examples/hello-world-slides.pxt` for an example of a
+PreTeXt slideshow. Such slideshows may be authored directly
+or produced somewhat automatically from a PreTeXt-authored
+book (see below). 
 
-Run this to produce a Reveal.js slideshow:
+You must have the following directory structure to transform
+a PreTeXt slideshow source into the final product.
 
 ```
-TODO
+mathbook
+  xsl
+    mathbook-common.xsl
+    mathbook-html.xsl
+    mathbook-latex.xsl
+pretext-slides
+  pretext-revealjs.xsl
+  pretext-beamer.xsl
+```
+
+Run this within the `pretext-slides` folder to produce a Reveal.js slideshow:
+
+```
+xsltproc -o examples/hello-world-slides.html --xinclude pretext-revealjs.xsl examples/hello-world-slides.xml
+```
+
+Run this to produce a Beamer source LaTeX file:
+
+```
+xsltproc -o examples/hello-world-slides.tex --xinclude pretext-beamer.xsl examples/hello-world-slides.xml
 ```
 
 ## pretext-book-to-slides
 
 Without any additional configuration, 
 `pretext-book-to-slides.xsl` automatically creates
-slides based on the following elements of a PreTeXt book.
+slides based on the following content of a PreTeXt book.
 
 ```
 pretext
@@ -40,15 +61,15 @@ pretext
 ```
 
 It is up to the author to decide the subset of additional
-content within the book (e.g. theorems, paragraphs) should
+content within the book (e.g. theorems, paragraphs) that should
 appear as slides. This is done by way of adding the following
 attributes.
 
 - `slide="single"` designates an element that appears by itself
   as a single slide
-- TODO:
+- *TODO:
   `slide="begin"`, `slide="continue"`, and `slide="end"` designate
-  a group of elements that appear together on the same slide
+  a group of elements that appear together on the same slide*
 - `slide-step="true"` designates that this element within a slide
   should not appear immediately when the slide is displayed,
   but will appear once all previous `slide-step="true"` elements
@@ -68,15 +89,15 @@ that was transpiled into `hello-world-slides.pxt` using the
 following command.
 
 ```
-xsltproc -o hello-world-slides.xml --xinclude ../pretext-book-to-slideshow.xsl hello-world-book.xml
+xsltproc -o examples/hello-world-slides.xml --xinclude pretext-book-to-slideshow.xsl examples/hello-world-book.xml
 ```
 
 ## Viewing the slideshow in your browser.
 
 If you have Python 3 installed, this simple command will
 spin up a local server that will allow you to view
-your Reveal.js slideshow (or anything really) in your
-browser at <http://localhost:3000>.
+your Reveal.js slideshow in your
+browser at <http://localhost:3000/hello-world-slides.html>.
 
 ```
 python3 -m http.server 3000
