@@ -59,3 +59,9 @@ PreTeXt and will continue to be transpiled by e.g.
 
 See `examples/hello-world-book.pxt` for the PreTeXt book
 that was transpiled into `hello-world.pxt`.
+
+## Credits
+
+These tools were developed by Steven Clontz and
+Andrew Rechnitzer during the 2019 June AIM
+Workshop on PreTeXt enhancements and annual editions.
