@@ -32,22 +32,25 @@ pretext-slides
   pretext-beamer.xsl
 ```
 
+### pretext-revealjs
+
 Run this within the `pretext-slides` folder to produce a Reveal.js slideshow:
 
 ```
 xsltproc -o examples/hello-world-slides.html --xinclude pretext-revealjs.xsl examples/hello-world-slides.xml
 ```
 
+### pretext-beamer
 Run this to produce a Beamer source LaTeX file:
 
 ```
 xsltproc -o examples/hello-world-slides.tex --xinclude pretext-beamer.xsl examples/hello-world-slides.xml
 ```
 
-## pretext-book-to-slides
+## extract-slideshow
 
 Without any additional configuration, 
-`pretext-book-to-slides.xsl` automatically creates
+`extract-slideshow.xsl` automatically creates
 slides based on the following content of a PreTeXt book.
 
 ```
@@ -76,6 +79,10 @@ attributes.
   are displayed and the user progresses through the slides once
   more. (That is, it is preceeded by `\pause` in Beamer, and
   is a Reveal.js `fragment`.)
+- *TODO:
+  Alternately, the user can specify with a stringparam(?)
+  that they want single slides for e.g. definitions,
+  theorems, etc.*
 
 Numbered elements (e.g. theorems, activities) have their
 numbering preserved in the corresponding slides.
@@ -98,6 +105,9 @@ If you have Python 3 installed, this simple command will
 spin up a local server that will allow you to view
 your Reveal.js slideshow in your
 browser at <http://localhost:3000/hello-world-slides.html>.
+(Honestly this is just a good trick in general; you can also
+do this for PreTeXt HTML books if you want to emulate a
+"real" static site server.)
 
 ```
 python3 -m http.server 3000
