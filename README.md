@@ -1,7 +1,7 @@
 # pretext-slides
 
 This is the (hopefully) temporary home of slide-related 
-XML transforms:
+PreTeXt transforms:
 
 1. `pretext-revealjs.xsl` transpiles a `pretext/article/slideshow`
 (using a slight extension of vanilla PreTeXt) into Reveal.js slides
