@@ -114,12 +114,12 @@ following command.
 xsltproc -o examples/hello-world-book-slides.xml --xinclude extract-slideshow.xsl examples/hello-world-book.xml
 ```
 
-## Viewing the slideshow in your browser.
+## Previewing the slideshow in your browser.
 
 If you have Python 3 installed, this simple command will
 spin up a local server that will allow you to view
-your Reveal.js slideshow in your
-browser at <http://localhost:3000/hello-world-slides.html>.
+your Reveal.js slideshow in your browser at 
+<http://localhost:3000/> before you upload it to the internet.
 (Honestly this is just a good trick in general; you can also
 do this for PreTeXt HTML books if you want to emulate a
 "real" static site server.)
