@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<pretext>
+
+<article>
+<slideshow>
+
+  <title>Hello World!</title>
+  <subtitle>Sample PreTeXt slides</subtitle>
+
+  <frontmatter>
+    <titlepage>
+      <author>
+        <personname>Andrew Rechnitzer</personname>
+        <affiliation>UBC</affiliation>
+        <logo><image source="https://dummyimage.com/100x100/26943a/fff.png&amp;text=PreTeXt+Slides"/></logo>
+      </author>
+
+      <author>
+        <personname>Steven Clontz</personname>
+        <affiliation>U South AL</affiliation>
+        <logo><image source="https://dummyimage.com/100x100/263196/fff.png&amp;text=PreTeXt+Slides"/></logo>
+      </author>
+
+      <event>Pretext hackery Portland</event>
+      <date>June 2019</date>
+    </titlepage>
+  </frontmatter>
+
+<section>
+  <slide>
+    <title>PDX <m>\iff</m> PTX</title>
+    <ul>
+      <li><p>One item</p></li>
+      <li><p>Another item</p></li>
+      <li><p>
+        A really long item which is really far too long to be an 
+        item in a talk. Points should really be only a single line 
+        unless they are really important.
+      </p></li>
+    </ul>
+  </slide>
+
+  <slide>
+    <title>A second slide here</title>
+    <p>
+      Words and stuff
+    </p>
+    <p>
+      <ul slide-step="true">
+      <li><p>First thing</p></li>
+      <li><p>Second thing</p></li>
+      <li><p>Third thing</p></li>
+    </ul>
+  </p>
+  </slide>
+
+  <slide>
+    <title>Put stuff next to other stuff</title>
+    <sidebyside width="45%">
+    <p>
+      <image source="https://dummyimage.com/500/872694/fff.png&amp;text=PreTeXt+Slides"/>
+    </p>
+    <p>Thing two:
+      <ul>
+        <li><p>a bit of this.</p></li>
+        <li><p>a bit of that.</p></li>
+        <li><p>a bit of the other.</p></li>
+        <li><p>
+          and a very long and tedious part that really should not 
+          be part of a talk but it snuck in.
+        </p></li>
+      </ul>
+    </p>
+    </sidebyside>
+  </slide>
+
+  <slide>
+    <title>Put stuff next to other stuff 2 </title>
+    <sidebyside width="30%" slide-step="true">
+    <p>
+      <image source="https://dummyimage.com/500/cc7a37/fff.png&amp;text=PreTeXt+Slides"/>
+    </p>
+    <p>
+        Who puts 3 columns like this?
+    </p>
+    <p>
+      More stuff and bits
+      <ul>
+        <li><p>a bit of this.</p></li>
+        <li><p>a bit of that.</p></li>
+        <li><p>a bit of the other.</p></li>
+        <li><p>and yet more bit.</p></li>
+      </ul>
+    </p>
+    </sidebyside>
+  </slide>
+
+</section>
+
+<section>
+  <slide>
+    <title>Another column of slides</title>
+    <theorem>
+      <title>Cats and Mats</title>
+      <statement><p>The cat sits on the mat.</p></statement>
+      <proof><p>
+        <ul slide-step="true">
+          <li><p>Take cat and place near mat.</p></li>
+          <li><p>Wait until cat is sat.</p></li>
+          <li><p>Attempt to lift mat without disturbing cat.</p></li>
+        </ul>
+      </p></proof>
+    </theorem>
+  </slide>
+
+
+  <slide>
+    <title>Now without proof</title>
+    <corollary>
+      <title>Cats and bats</title>
+      <statement><p>The cat eats the bat on the mat.</p></statement>
+    </corollary>
+    <p>
+      <ul slide-step="true">
+        <li><p>The proof is too long to fit in the margin here.</p></li>
+        <li><p>It is left as an exercise for the reader.</p></li>
+      </ul>
+    </p>
+    <image source="https://dummyimage.com/600x100/d91f79/fff.png&amp;text=PreTeXt+Slides" slide-step="true" />
+  </slide>
+
+</section>
+
+<section>
+  <slide>
+    <title>A bit of math</title>
+    <theorem>
+      <title>Pythagorean Theorem</title>
+      <statement>
+      <p>
+        Let <m>a,b</m> be the lengths of the legs of a right triangle,
+        and let <m>c</m> be the length of its hypotenuse. Then:
+      </p>
+      <me>
+        a^2+b^2=c^2
+      </me>
+      </statement>
+      <proof><p>Look it up.</p></proof>
+    </theorem>
+  </slide>
+</section>
+
+</slideshow>
+
+</article>
+
+</pretext>

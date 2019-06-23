@@ -207,18 +207,16 @@
 </xsl:template>
 
 
-
-<xsl:template match="img">
+<xsl:template match="image">
   <img>
     <xsl:attribute name="src">
-        <xsl:value-of select="@src" />
+        <xsl:value-of select="@source" />
     </xsl:attribute>
-    <xsl:attribute name="width">
-        <xsl:value-of select="@width" />
-    </xsl:attribute>
-    <xsl:attribute name="height">
-        <xsl:value-of select="@height" />
-    </xsl:attribute>
+    <xsl:if test="@slide-step = 'true'">
+      <xsl:attribute name="class">
+        <xsl:text>fragment</xsl:text>
+      </xsl:attribute>
+    </xsl:if>
     <xsl:apply-templates/>
   </img>
 </xsl:template>
