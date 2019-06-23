@@ -5,8 +5,6 @@ PreTeXt transforms:
 
 1. `pretext-revealjs.xsl` transpiles a `pretext/article/slideshow`
 (using a slight extension of vanilla PreTeXt) into Reveal.js slides
-2. *TODO `pretext-beamer.xsl` similarly transpiles a 
-`pretext/article/slideshow` into a Beamer source file*
 3. `extract-slideshow.xsl` transpiles a `pretext/book`
 into a `pretext/article/slideshow`
 
@@ -15,7 +13,7 @@ into a `pretext/article/slideshow`
 Look at `examples/hello-world-slides.xml` for an example of a
 PreTeXt slideshow. Such slideshows may be authored directly
 as these were,
-or produced somewhat automatically from a PreTeXt-authored
+or extracted almost automatically from a PreTeXt-authored
 book (see below). 
 
 You must have the following directory structure to transform
@@ -47,6 +45,13 @@ to
 
 in `pretext-revealjs.xsl` to import via the correct path.
 
+Alternatively, you can run the following command in the folder containing
+the `mathbook` folder to create a symlink named `pretext`.
+
+```
+ln -s mathbook pretext
+```
+
 ### pretext-revealjs
 
 Run this within the `pretext-slides` folder to produce a Reveal.js slideshow:
@@ -55,12 +60,8 @@ Run this within the `pretext-slides` folder to produce a Reveal.js slideshow:
 xsltproc -o examples/hello-world-slides.html --xinclude pretext-revealjs.xsl examples/hello-world-slides.xml
 ```
 
-### TODO: pretext-beamer
-*Run this to produce a Beamer source LaTeX file:*
-
-```
-xsltproc -o examples/hello-world-slides.tex --xinclude pretext-beamer.xsl examples/hello-world-slides.xml
-```
+Visit <https://stevenclontz.github.io/pretext-slides/hello-world-slides.html>
+to see how these look.
 
 ## extract-slideshow
 
@@ -83,21 +84,21 @@ content within the book (e.g. theorems, paragraphs) that should
 appear as slides. This is done by way of adding the following
 attributes.
 
-- `slide="single"` designates an element that appears by itself
-  as a single slide
-- *TODO:
-  `slide="begin"`, `slide="continue"`, and `slide="end"` designate
-  a group of elements that appear together on the same slide*
+- In `<docinfo slide_defaults="foo">`, replace `foo` with a
+  pipe-delimited list of default environments to become single
+  slides. For example, 
+  `<docinfo slide_defaults="definition|theorem">`
+  would produce a single slide for each definition and theorem
+  within a section.
+- For each other element that you wish to include in a slide
+  add `slide="single"` as an attribute. These elements must
+  be direct children of a section.
 - `slide-step="true"` designates that this element within a slide
   should not appear immediately when the slide is displayed,
   but will appear once all previous `slide-step="true"` elements
   are displayed and the user progresses through the slides once
   more. (That is, it is preceeded by `\pause` in Beamer, and
   is a Reveal.js `fragment`.)
-- *TODO:
-  Alternately, the user can specify using `docinfo`
-  that they want single slides for e.g. definitions,
-  theorems, etc.*
 
 Numbered elements (e.g. theorems, activities) have their
 numbering preserved in the corresponding slides.
@@ -107,12 +108,18 @@ PreTeXt and will continue to be transpiled by e.g.
 `mathbook-html` without issue.
 
 See `examples/hello-world-book.xml` for a PreTeXt book
-that is transpiled into `hello-world-book-slides.pxt` using the
-following command.
+that is transpiled into `examples/hello-world-book-slides.xml` 
+using the following command.
 
 ```
 xsltproc -o examples/hello-world-book-slides.xml --xinclude extract-slideshow.xsl examples/hello-world-book.xml
 ```
+
+Visit <https://stevenclontz.github.io/pretext-slides/html/> or
+<https://stevenclontz.github.io/pretext-slides/hello-world-book.pdf> to
+see the compiled sample book, and visit
+<https://stevenclontz.github.io/pretext-slides/hello-world-book-slides.html>
+to view the corresponding slides.
 
 ## Previewing the slideshow in your browser.
 
