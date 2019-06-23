@@ -87,7 +87,7 @@ attributes.
 - In `<docinfo slide-defaults="foo">`, replace `foo` with a
   pipe-delimited list of default environments to become single
   slides. For example, 
-  `<docinfo slide_defaults="definition|theorem">`
+  `<docinfo slide-defaults="definition|theorem">`
   would produce a single slide for each definition and theorem
   within a section.
 - For each other element that you wish to include in a slide
