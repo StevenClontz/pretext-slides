@@ -52,29 +52,24 @@
       border-radius: 2px 10px 2px;
       padding: 4px;
     }
-    .definition {
+    .definition,.theorem,.activity {
       border-width: 0.5px;
       border-style: solid;
       border-radius: 2px 10px 2px;
-      background: #00608010;
       padding: 1%;
+      margin-bottom: 2em;
     }
-    .theorem, .corollary {
-      border-width: 0.5px;
-      border-style: solid;
-      border-radius: 2px 10px 2px;
+    .definition {
+      background: #00608010;
+    }
+    .theorem {
       background: #ff000010;
-      padding: 1%;
     }
     .proof {
       background: #ffffff90;
     }
     .activity {
-      border-width: 0.5px;
-      border-style: solid;
-      border-radius: 2px 10px 2px;
       background: #60800010;
-      padding: 1%;
     }
   </style>
 
@@ -97,7 +92,6 @@
     Reveal.initialize({
     				controls: false,
     				progress: false,
-    				center: false,
     				hash: true,
     				transition: 'fade',
             width: "80%",
@@ -163,6 +157,11 @@
 <xsl:template match="slide">
 	<section>
 		<h2>
+<xsl:if test="@source-number">
+  <xsl:value-of select="@source-label"/>
+  <xsl:text> </xsl:text>
+  <xsl:value-of select="@source-number"/>:
+</xsl:if>
 			<xsl:apply-templates select="." mode="title-full" />
 		</h2>
 		<div align="left">
@@ -270,13 +269,19 @@
 <xsl:template match="corollary" mode="type-name">
   <xsl:text>Corollary</xsl:text>
 </xsl:template>
-<xsl:template match="theorem|corollary">
+<xsl:template match="lemma" mode="type-name">
+  <xsl:text>Lemma</xsl:text>
+</xsl:template>
+<xsl:template match="proposition" mode="type-name">
+  <xsl:text>Proposition</xsl:text>
+</xsl:template>
+<xsl:template match="theorem|corollary|lemma|proposition">
   <div class="theorem">
 	<div>
 		<h3>
       <xsl:choose>
       <xsl:when test="@source-number">
-        <xsl:apply-templates select="." mode="type-name" />: (<xsl:value-of select="@source-number"/>):
+        <xsl:apply-templates select="." mode="type-name" /> (<xsl:value-of select="@source-number"/>):
       </xsl:when>
       <xsl:otherwise>
         <xsl:apply-templates select="." mode="type-name" />:

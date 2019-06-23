@@ -1,0 +1,152 @@
+<?xml version="1.0"?>
+<pretext xmlns:xi="http://www.w3.org/2001/XInclude">
+  <docinfo slide-defaults="definition|proposition|theorem">
+    <macros>
+    \newcommand{\mc}{\mathcal}
+    \newcommand{\tuple}[1]{\left\langle{#1}\right\rangle}
+    \newcommand{\cl}{\operatorname{cl}}
+    \newcommand{\PreTeXt}{\text{Pre}\TeX{}\text{t}}
+  </macros>
+  </docinfo>
+  <article>
+    <slideshow>
+      <title>Intro to Topology</title>
+      <subtitle>Sample PreTeXt book</subtitle>
+      <frontmatter>
+        <titlepage>
+          <author>
+            <personname>Steven Clontz</personname>
+            <affiliation>U South AL</affiliation>
+            <logo>
+              <image source="https://dummyimage.com/100/263196/fff.png&amp;text=PreTeXt+Slides"/>
+            </logo>
+          </author>
+        </titlepage>
+      </frontmatter>
+      <section>
+        <slide source-label="Chapter" source-number="1">
+          <title>Start with the Basics</title>
+        </slide>
+      </section>
+      <section>
+        <slide source-label="Section" source-number="1.1">
+          <title>Defining a topology</title>
+        </slide>
+        <slide>
+          <definition source-number="1.1.1">
+            <statement>
+              <p>
+  Let <m>X</m> be a set, and let <m>\mc T\subseteq \mc P(X)</m> satisfy
+  the following properties.
+</p>
+              <ol>
+                <li>
+    <m>\emptyset,X\in\mc T</m>.
+  </li>
+                <li>
+    If <m>\mc U\subseteq\mc T</m>, then <m>\bigcup\mc U\in\mc T</m>.
+  </li>
+                <li>
+    If <m>U,V\in\mc T</m>, then <m>U\cap V\in\mc T</m>.
+  </li>
+              </ol>
+              <p>
+  Then <m>\mc T</m> is called a <term>topology</term> on <m>X</m>,
+  the pair <m>\tuple{X,\mc T}</m> is called a <term>topological space</term>,
+  and elements <m>U\in\mc T</m> are called <term>open sets</term> of the space.
+  (Usually <m>\tuple{X,\mc T}</m> is abbreviated to just <m>X</m> when the
+  topology is known from context.)
+</p>
+            </statement>
+          </definition>
+        </slide>
+        <slide>
+          <note source-number="1.1.2">
+            <statement>
+This note should be a slide, but only because
+slide=<q>true</q>.
+</statement>
+          </note>
+        </slide>
+        <slide>
+          <p>But this paragraph is, which is why we include it in a slide.</p>
+        </slide>
+        <slide>
+          <theorem source-number="1.1.4">
+            <statement>
+              <p>
+  Let <m>X</m> be any set. Then the following sets are topologies on <m>X</m>.
+</p>
+              <ol>
+                <li><m>\mc T=\mc P(X)</m> is called the <term>discrete topology</term>.</li>
+                <li><m>\mc T=\{\emptyset,X\}</m> is called the <term>indiscrete topology</term>.</li>
+              </ol>
+            </statement>
+          </theorem>
+        </slide>
+        <slide>
+          <proposition source-number="1.1.5">
+            <statement>
+              <p>
+  Let <m>\mc T</m> be a topology, and let <m>\mc U\subseteq\mc T</m> be finite. 
+  Then <m>\bigcap\mc U\in\mc T</m>.
+</p>
+            </statement>
+          </proposition>
+        </slide>
+      </section>
+      <section>
+        <slide source-label="Section" source-number="1.2">
+          <title>More advanced things</title>
+        </slide>
+        <slide>
+          <definition source-number="1.2.1">
+            <statement>
+              <p>
+  Suppose <m>D\subseteq X</m> and <m>\cl D = X</m>.
+  Then <m>D</m> is said to be <term>dense</term>
+  in <m>X</m>.
+</p>
+            </statement>
+          </definition>
+        </slide>
+        <slide>
+          <theorem source-number="1.2.3">
+            <statement>
+              <p>
+  A subset is dense if and only if it intersects
+  every nonempty open set.
+</p>
+            </statement>
+          </theorem>
+        </slide>
+      </section>
+      <section>
+        <slide source-label="Chapter" source-number="2">
+          <title>One more chapter</title>
+        </slide>
+      </section>
+      <section>
+        <slide source-label="Section" source-number="2.1">
+          <title>One more section</title>
+        </slide>
+        <slide>
+          <theorem source-number="2.1.1">
+            <statement>
+              <p>A <m>\PreTeXt</m> example isn't sufficient
+without a long math equation.</p>
+            </statement>
+          </theorem>
+        </slide>
+        <slide>
+          <proposition source-number="2.1.2">
+            <statement>
+              <p>This equation appears in a slide.</p>
+              <me>a^2+b^2=c^2</me>
+            </statement>
+          </proposition>
+        </slide>
+      </section>
+    </slideshow>
+  </article>
+</pretext>

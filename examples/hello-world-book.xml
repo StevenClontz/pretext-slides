@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<pretext>
+
+<docinfo 
+  slide-defaults="definition|proposition|theorem"
+>
+  <macros>
+    \newcommand{\mc}{\mathcal}
+    \newcommand{\tuple}[1]{\left\langle{#1}\right\rangle}
+    \newcommand{\cl}{\operatorname{cl}}
+    \newcommand{\PreTeXt}{\text{Pre}\TeX{}\text{t}}
+  </macros>
+</docinfo>
+
+<book>
+
+  <title>Intro to Topology</title>
+  <subtitle>Sample PreTeXt book</subtitle>
+
+  <frontmatter>
+    <titlepage>
+      <author>
+        <personname>Steven Clontz</personname>
+        <affiliation>U South AL</affiliation>
+        <logo><image source="https://dummyimage.com/100/263196/fff.png&amp;text=PreTeXt+Slides"/></logo>
+      </author>
+    </titlepage>
+  </frontmatter>
+
+  <chapter>
+    <title>Start with the Basics</title>
+    <section>
+      <title>Defining a topology</title>
+      <p>Here's a short paragraph.</p>
+<definition><statement>
+<p>
+  Let <m>X</m> be a set, and let <m>\mc T\subseteq \mc P(X)</m> satisfy
+  the following properties.
+</p>
+<ol>
+  <li>
+    <m>\emptyset,X\in\mc T</m>.
+  </li>
+  <li>
+    If <m>\mc U\subseteq\mc T</m>, then <m>\bigcup\mc U\in\mc T</m>.
+  </li>
+  <li>
+    If <m>U,V\in\mc T</m>, then <m>U\cap V\in\mc T</m>.
+  </li>
+</ol>
+<p>
+  Then <m>\mc T</m> is called a <term>topology</term> on <m>X</m>,
+  the pair <m>\tuple{X,\mc T}</m> is called a <term>topological space</term>,
+  and elements <m>U\in\mc T</m> are called <term>open sets</term> of the space.
+  (Usually <m>\tuple{X,\mc T}</m> is abbreviated to just <m>X</m> when the
+  topology is known from context.)
+</p>
+</statement></definition>
+<p>Another short paragraph. Lorem ipsum, etc.</p>
+<note slide="true"><statement>
+This note should be a slide, but only because
+slide=<q>true</q>.
+</statement></note>
+<p>This paragraph isn't important.</p>
+<p slide="true">But this paragraph is, which is why we include it in a slide.</p>
+<note><statement>
+This note should <strong>not</strong> be a slide
+since it doesn't have a slide attribute and
+notes aren't designated in the docinfo.
+</statement></note>
+<theorem><statement>
+<p>
+  Let <m>X</m> be any set. Then the following sets are topologies on <m>X</m>.
+</p>
+<ol>
+  <li><m>\mc T=\mc P(X)</m> is called the <term>discrete topology</term>.</li>
+  <li><m>\mc T=\{\emptyset,X\}</m> is called the <term>indiscrete topology</term>.</li>
+</ol>
+</statement>
+<proof><p>Just check the things.</p></proof>
+</theorem>
+<proposition><statement>
+<p>
+  Let <m>\mc T</m> be a topology, and let <m>\mc U\subseteq\mc T</m> be finite. 
+  Then <m>\bigcap\mc U\in\mc T</m>.
+</p>
+</statement></proposition>
+    </section>
+    <section>
+      <title>More advanced things</title>
+<definition><statement>
+<p>
+  Suppose <m>D\subseteq X</m> and <m>\cl D = X</m>.
+  Then <m>D</m> is said to be <term>dense</term>
+  in <m>X</m>.
+</p>
+</statement></definition>
+<lemma><statement>
+<p>
+  Lemmas are not included in the slides for some
+  reason, but could be if they were added to the
+  docinfo.
+</p>
+</statement></lemma>
+<theorem><statement>
+<p>
+  A subset is dense if and only if it intersects
+  every nonempty open set.
+</p>
+</statement></theorem>
+<corollary><statement>
+<p>
+  A subset is dense if and only if every point of
+  the space belongs to it or is a limit point of
+  it. (Corollaries also don't show up in slides
+  according to the docinfo though.)
+</p>
+</statement></corollary>
+    </section>
+  </chapter>
+  <chapter>
+    <title>One more chapter</title>
+    <section>
+      <title>One more section</title>
+<theorem><statement>
+<p>A <m>\PreTeXt</m> example isn't sufficient
+without a long math equation.</p>
+</statement></theorem>
+<proposition><statement>
+<p>This equation appears in a slide.</p>
+<me>a^2+b^2=c^2</me>
+</statement></proposition>
+<fact><statement>
+<p>This equation does not unless docinfo is
+edited.</p>
+<me>\int_0^1 6x^2\,dx=2</me>
+</statement></fact>
+    </section>
+  </chapter>
+
+
+</book>
+
+</pretext>

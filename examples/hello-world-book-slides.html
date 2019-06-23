@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Intro to Topology</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.8.0/css/reset.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.8.0/css/reveal.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.8.0/css/theme/simple.min.css" rel="stylesheet">
+<style>
+    ul {
+      display: block !important;
+    }
+    .reveal img {
+      border: 0.5px !important;
+      border-radius: 2px 10px 2px;
+      padding: 4px;
+    }
+    .definition,.theorem,.activity {
+      border-width: 0.5px;
+      border-style: solid;
+      border-radius: 2px 10px 2px;
+      padding: 1%;
+      margin-bottom: 2em;
+    }
+    .definition {
+      background: #00608010;
+    }
+    .theorem {
+      background: #ff000010;
+    }
+    .proof {
+      background: #ffffff90;
+    }
+    .activity {
+      background: #60800010;
+    }
+  </style>
+</head>
+<body>
+<div style="display: none;">\(
+    \newcommand{\mc}{\mathcal}
+    \newcommand{\tuple}[1]{\left\langle{#1}\right\rangle}
+    \newcommand{\cl}{\operatorname{cl}}
+    \newcommand{\PreTeXt}{\text{Pre}\TeX{}\text{t}}
+  \)</div>
+<div class="reveal"><div class="slides">
+<section><h1>Intro to Topology</h1>
+<h2>Sample PreTeXt book</h2>
+<table>
+<tr><th align="center" style="border-bottom: 0px;">Steven Clontz</th></tr>
+<tr><td align="center" style="border-bottom: 0px;">U South AL</td></tr>
+<tr><td align="center"><img src="https://dummyimage.com/100/263196/fff.png&amp;text=PreTeXt+Slides"></td></tr>
+</table></section><section><section><h2>Chapter 1:
+Start with the Basics</h2>
+<div align="left"></div></section></section><section><section><h2>Section 1.1:
+Defining a topology</h2>
+<div align="left"></div></section><section><h2></h2>
+<div align="left"><div class="boxed definition">
+<h3>Definition (1.1.1):
+      </h3>
+<p>Let \(X\) be a set, and let \(\mc T\subseteq \mc P(X)\) satisfy the following properties.</p>
+<ol>
+<li>\(\emptyset,X\in\mc T\text{.}\)</li>
+<li>If \(\mc U\subseteq\mc T\text{,}\) then \(\bigcup\mc U\in\mc T\text{.}\)</li>
+<li>If \(U,V\in\mc T\text{,}\) then \(U\cap V\in\mc T\text{.}\)</li>
+</ol>
+<p>Then \(\mc T\) is called a <dfn class="terminology">topology</dfn> on \(X\text{,}\) the pair \(\tuple{X,\mc T}\) is called a <dfn class="terminology">topological space</dfn>, and elements \(U\in\mc T\) are called <dfn class="terminology">open sets</dfn> of the space. (Usually \(\tuple{X,\mc T}\) is abbreviated to just \(X\) when the topology is known from context.)</p>
+</div></div></section><section><h2></h2>
+<div align="left"><div class="activity">
+<h3>Note (1.1.2):
+      </h3>This note should be a slide, but only because slide=“true”.</div></div></section><section><h2></h2>
+<div align="left"><p>But this paragraph is, which is why we include it in a slide.</p></div></section><section><h2></h2>
+<div align="left"><div class="theorem"><div>
+<h3>Theorem (1.1.4):
+      </h3>
+<p>Let \(X\) be any set. Then the following sets are topologies on \(X\text{.}\)</p>
+<ol>
+<li>\(\mc T=\mc P(X)\) is called the <dfn class="terminology">discrete topology</dfn>.</li>
+<li>\(\mc T=\{\emptyset,X\}\) is called the <dfn class="terminology">indiscrete topology</dfn>.</li>
+</ol>
+</div></div></div></section><section><h2></h2>
+<div align="left"><div class="theorem"><div>
+<h3>Proposition (1.1.5):
+      </h3>
+<p>Let \(\mc T\) be a topology, and let \(\mc U\subseteq\mc T\) be finite. Then \(\bigcap\mc U\in\mc T\text{.}\)</p>
+</div></div></div></section></section><section><section><h2>Section 1.2:
+More advanced things</h2>
+<div align="left"></div></section><section><h2></h2>
+<div align="left"><div class="boxed definition">
+<h3>Definition (1.2.1):
+      </h3>
+<p>Suppose \(D\subseteq X\) and \(\cl D = X\text{.}\) Then \(D\) is said to be <dfn class="terminology">dense</dfn> in \(X\text{.}\)</p>
+</div></div></section><section><h2></h2>
+<div align="left"><div class="theorem"><div>
+<h3>Theorem (1.2.3):
+      </h3>
+<p>A subset is dense if and only if it intersects every nonempty open set.</p>
+</div></div></div></section></section><section><section><h2>Chapter 2:
+One more chapter</h2>
+<div align="left"></div></section></section><section><section><h2>Section 2.1:
+One more section</h2>
+<div align="left"></div></section><section><h2></h2>
+<div align="left"><div class="theorem"><div>
+<h3>Theorem (2.1.1):
+      </h3>
+<p>A \(\PreTeXt\) example isn't sufficient without a long math equation.</p>
+</div></div></div></section><section><h2></h2>
+<div align="left"><div class="theorem"><div>
+<h3>Proposition (2.1.2):
+      </h3>
+<p>This equation appears in a slide.</p>
+<div class="displaymath">
+\begin{equation*}
+a^2+b^2=c^2
+\end{equation*}
+</div>
+</div></div></div></section></section>
+</div></div>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.8.0/js/reveal.min.js"></script><script>
+    Reveal.initialize({
+    				controls: false,
+    				progress: false,
+    				hash: true,
+    				transition: 'fade',
+            width: "80%",
+            height: "90%",
+    				dependencies: [
+              { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.8.0/plugin/math/math.min.js', async: true },
+              ]
+            });
+  </script>
+</html>
