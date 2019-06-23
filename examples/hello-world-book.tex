@@ -1,0 +1,494 @@
+%**************************************%
+%*    Generated from PreTeXt source   *%
+%*    on 2019-06-23T21:00:00Z    *%
+%*                                    *%
+%*      https://pretextbook.org       *%
+%*                                    *%
+%**************************************%
+\documentclass[oneside,10pt,]{book}
+%% Custom Preamble Entries, early (use latex.preamble.early)
+%% Default LaTeX packages
+%%   1.  always employed (or nearly so) for some purpose, or
+%%   2.  a stylewriter may assume their presence
+\usepackage{geometry}
+%% Some aspects of the preamble are conditional,
+%% the LaTeX engine is one such determinant
+\usepackage{ifthen}
+%% etoolbox has a variety of modern conveniences
+\usepackage{etoolbox}
+\usepackage{ifxetex,ifluatex}
+%% Raster graphics inclusion
+\usepackage{graphicx}
+%% Color support, xcolor package
+%% Always loaded, for: add/delete text, author tools
+%% Here, since tcolorbox loads tikz, and tikz loads xcolor
+\PassOptionsToPackage{usenames,dvipsnames,svgnames,table}{xcolor}
+\usepackage{xcolor}
+%% Colored boxes, and much more, though mostly styling
+%% skins library provides "enhanced" skin, employing tikzpicture
+%% boxes may be configured as "breakable" or "unbreakable"
+%% "raster" controls grids of boxes, aka side-by-side
+\usepackage{tcolorbox}
+\tcbuselibrary{skins}
+\tcbuselibrary{breakable}
+\tcbuselibrary{raster}
+%% We load some "stock" tcolorbox styles that we use a lot
+%% Placement here is provisional, there will be some color work also
+%% First, black on white, no border, transparent, but no assumption about titles
+\tcbset{ bwminimalstyle/.style={size=minimal, boxrule=-0.3pt, frame empty,
+colback=white, colbacktitle=white, coltitle=black, opacityfill=0.0} }
+%% Second, bold title, run-in to text/paragraph/heading
+%% Space afterwards will be controlled by environment,
+%% dependent of constructions of the tcb title
+\tcbset{ runintitlestyle/.style={fonttitle=\normalfont\bfseries, attach title to upper} }
+%% Spacing prior to each exercise, anywhere
+\tcbset{ exercisespacingstyle/.style={before skip={1.5ex plus 0.5ex}} }
+%% Spacing prior to each block
+\tcbset{ blockspacingstyle/.style={before skip={2.0ex plus 0.5ex}} }
+%% xparse allows the construction of more robust commands,
+%% this is a necessity for isolating styling and behavior
+%% The tcolorbox library of the same name loads the base library
+\tcbuselibrary{xparse}
+%% Hyperref should be here, but likes to be loaded late
+%%
+%% Inline math delimiters, \(, \), need to be robust
+%% 2016-01-31:  latexrelease.sty  supersedes  fixltx2e.sty
+%% If  latexrelease.sty  exists, bugfix is in kernel
+%% If not, bugfix is in  fixltx2e.sty
+%% See:  https://tug.org/TUGboat/tb36-3/tb114ltnews22.pdf
+%% and read "Fewer fragile commands" in distribution's  latexchanges.pdf
+\IfFileExists{latexrelease.sty}{}{\usepackage{fixltx2e}}
+%% Text height identically 9 inches, text width varies on point size
+%% See Bringhurst 2.1.1 on measure for recommendations
+%% 75 characters per line (count spaces, punctuation) is target
+%% which is the upper limit of Bringhurst's recommendations
+\geometry{letterpaper,total={340pt,9.0in}}
+%% Custom Page Layout Adjustments (use latex.geometry)
+%% This LaTeX file may be compiled with pdflatex, xelatex, or lualatex executables
+%% LuaTeX is not explicitly supported, but we do accept additions from knowledgeable users
+%% The conditional below provides  pdflatex  specific configuration last
+%% The following provides engine-specific capabilities
+%% Generally, xelatex is necessary non-Western fonts
+\ifthenelse{\boolean{xetex} \or \boolean{luatex}}{%
+%% begin: xelatex and lualatex-specific configuration
+\ifxetex\usepackage{xltxtra}\fi
+%% realscripts is the only part of xltxtra relevant to lualatex 
+\ifluatex\usepackage{realscripts}\fi
+%% fontspec package provides extensive control of system fonts,
+%% meaning *.otf (OpenType), and apparently *.ttf (TrueType)
+%% that live *outside* your TeX/MF tree, and are controlled by your *system*
+%% fontspec will make Latin Modern (lmodern) the default font
+\usepackage{fontspec}
+%% 
+%% Extensive support for other languages
+\usepackage{polyglossia}
+%% Set main/default language based on pretext/@xml:lang value
+%% document language code is "en-US", US English
+%% usmax variant has extra hypenation
+\setmainlanguage[variant=usmax]{english}
+%% Enable secondary languages based on discovery of @xml:lang values
+%% Enable fonts/scripts based on discovery of @xml:lang values
+%% Western languages should be ably covered by Latin Modern Roman
+%% end: xelatex and lualatex-specific configuration
+}{%
+%% begin: pdflatex-specific configuration
+\usepackage[utf8]{inputenc}
+%% PreTeXt will create a UTF-8 encoded file
+%% begin: font setup and configuration for use with pdflatex
+\usepackage{lmodern}
+\usepackage[T1]{fontenc}
+%% end: font setup and configuration for use with pdflatex
+%% end: pdflatex-specific configuration
+}
+%% Symbols, align environment, bracket-matrix
+\usepackage{amsmath}
+\usepackage{amssymb}
+%% allow page breaks within display mathematics anywhere
+%% level 4 is maximally permissive
+%% this is exactly the opposite of AMSmath package philosophy
+%% there are per-display, and per-equation options to control this
+%% split, aligned, gathered, and alignedat are not affected
+\allowdisplaybreaks[4]
+%% allow more columns to a matrix
+%% can make this even bigger by overriding with  latex.preamble.late  processing option
+\setcounter{MaxMatrixCols}{30}
+%%
+%%
+%% Division Titles, and Page Headers/Footers
+%% titlesec package, loading "titleps" package cooperatively
+%% See code comments about the necessity and purpose of "explicit" option
+\usepackage[explicit, pagestyles]{titlesec}
+\newtitlemark{\chaptertitlename}
+%% Set global/default page style for document due
+%% to potential re-definitions after documentclass
+\pagestyle{headings}
+%%
+%% Create globally-available macros to be provided for style writers
+%% These are redefined for each occurence of each division
+\newcommand{\divisionnameptx}{\relax}%
+\newcommand{\titleptx}{\relax}%
+\newcommand{\subtitleptx}{\relax}%
+\newcommand{\shortitleptx}{\relax}%
+\newcommand{\authorsptx}{\relax}%
+\newcommand{\epigraphptx}{\relax}%
+%% Create environments for possible occurences of each division
+%% Environment for a PTX "chapter" at the level of a LaTeX "chapter"
+\NewDocumentEnvironment{chapterptx}{mmmmmm}
+{%
+\renewcommand{\divisionnameptx}{Chapter}%
+\renewcommand{\titleptx}{#1}%
+\renewcommand{\subtitleptx}{#2}%
+\renewcommand{\shortitleptx}{#3}%
+\renewcommand{\authorsptx}{#4}%
+\renewcommand{\epigraphptx}{#5}%
+\chapter[#3]{#1}%
+\label{#6}%
+}{}%
+%% Environment for a PTX "section" at the level of a LaTeX "section"
+\NewDocumentEnvironment{sectionptx}{mmmmmm}
+{%
+\renewcommand{\divisionnameptx}{Section}%
+\renewcommand{\titleptx}{#1}%
+\renewcommand{\subtitleptx}{#2}%
+\renewcommand{\shortitleptx}{#3}%
+\renewcommand{\authorsptx}{#4}%
+\renewcommand{\epigraphptx}{#5}%
+\section[#3]{#1}%
+\label{#6}%
+}{}%
+%%
+%% Styles for six traditional LaTeX divisions
+\titleformat{\chapter}[display]
+{\normalfont\huge\bfseries}{\divisionnameptx\space\thechapter}{20pt}{\Huge#1}
+[{\Large\authorsptx}]
+\titleformat{name=\chapter,numberless}[display]
+{\normalfont\huge\bfseries}{}{0pt}{#1}
+[{\Large\authorsptx}]
+\titlespacing*{\chapter}{0pt}{50pt}{40pt}
+\titleformat{\section}[hang]
+{\normalfont\Large\bfseries}{\thesection}{1ex}{#1}
+[{\large\authorsptx}]
+\titleformat{name=\section,numberless}[block]
+{\normalfont\Large\bfseries}{}{0pt}{#1}
+[{\large\authorsptx}]
+\titlespacing*{\section}{0pt}{3.5ex plus 1ex minus .2ex}{2.3ex plus .2ex}
+\titleformat{\subsection}[hang]
+{\normalfont\large\bfseries}{\thesubsection}{1ex}{#1}
+[{\normalsize\authorsptx}]
+\titleformat{name=\subsection,numberless}[block]
+{\normalfont\large\bfseries}{}{0pt}{#1}
+[{\normalsize\authorsptx}]
+\titlespacing*{\subsection}{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+\titleformat{\subsubsection}[hang]
+{\normalfont\normalsize\bfseries}{\thesubsubsection}{1em}{#1}
+[{\small\authorsptx}]
+\titleformat{name=\subsubsection,numberless}[block]
+{\normalfont\normalsize\bfseries}{}{0pt}{#1}
+[{\normalsize\authorsptx}]
+\titlespacing*{\subsubsection}{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+\titleformat{\paragraph}[hang]
+{\normalfont\normalsize\bfseries}{\theparagraph}{1em}{#1}
+[{\small\authorsptx}]
+\titleformat{name=\paragraph,numberless}[block]
+{\normalfont\normalsize\bfseries}{}{0pt}{#1}
+[{\normalsize\authorsptx}]
+\titlespacing*{\paragraph}{0pt}{3.25ex plus 1ex minus .2ex}{1.5em}
+%%
+%% Semantic Macros
+%% To preserve meaning in a LaTeX file
+%%
+%% \mono macro for content of "c", "cd", "tag", etc elements
+%% Also used automatically in other constructions
+%% Simply an alias for \texttt
+%% Always defined, even if there is no need, or if a specific tt font is not loaded
+\newcommand{\mono}[1]{\texttt{#1}}
+%%
+%% Following semantic macros are only defined here if their
+%% use is required only in this specific document
+%%
+%% Used for inline definitions of terms
+\newcommand{\terminology}[1]{\textbf{#1}}
+%% Division Numbering: Chapters, Sections, Subsections, etc
+%% Division numbers may be turned off at some level ("depth")
+%% A section *always* has depth 1, contrary to us counting from the document root
+%% The latex default is 3.  If a larger number is present here, then
+%% removing this command may make some cross-references ambiguous
+%% The precursor variable $numbering-maxlevel is checked for consistency in the common XSL file
+\setcounter{secnumdepth}{3}
+%% begin: General AMS environment setup
+%% Environments built with amsthm package
+\usepackage{amsthm}
+%% Numbering for Theorems, Conjectures, Examples, Figures, etc
+%% Controlled by  numbering.theorems.level  processing parameter
+%% Numbering: all theorem-like numbered consecutively
+%% i.e. Corollary 4.3 follows Theorem 4.2
+%% Always need some theorem environment to set base numbering scheme
+%% even if document has no theorems (but has other environments)
+%% Create a never-used style first, always
+%% simply to provide a global counter to use, namely "cthm"
+\newtheorem{cthm}{BadTheoremStringName}[section]
+%% AMS "proof" environment is not used, but we leave previously
+%% implemented \qedhere in place, should the LaTeX be recycled
+\renewcommand{\qedhere}{\relax}
+%% end: General AMS environment setup
+%%
+%% tcolorbox, with styles, for THEOREM-LIKE
+%%
+%% theorem: fairly simple numbered block/structure
+\tcbset{ theoremstyle/.style={bwminimalstyle, runintitlestyle, blockspacingstyle, after title={\space}, } }
+\newtcolorbox[use counter*=cthm]{theorem}[3]{title={{Theorem~\thecthm\notblank{#1#2}{\space}{}\notblank{#1}{\space#1}{}\notblank{#2}{\space(#2)}{}}}, phantomlabel={#3}, breakable, parbox=false, fontupper=\itshape, theoremstyle, }
+%% proposition: fairly simple numbered block/structure
+\tcbset{ propositionstyle/.style={bwminimalstyle, runintitlestyle, blockspacingstyle, after title={\space}, } }
+\newtcolorbox[use counter*=cthm]{proposition}[3]{title={{Proposition~\thecthm\notblank{#1#2}{\space}{}\notblank{#1}{\space#1}{}\notblank{#2}{\space(#2)}{}}}, phantomlabel={#3}, breakable, parbox=false, fontupper=\itshape, propositionstyle, }
+%% lemma: fairly simple numbered block/structure
+\tcbset{ lemmastyle/.style={bwminimalstyle, runintitlestyle, blockspacingstyle, after title={\space}, } }
+\newtcolorbox[use counter*=cthm]{lemma}[3]{title={{Lemma~\thecthm\notblank{#1#2}{\space}{}\notblank{#1}{\space#1}{}\notblank{#2}{\space(#2)}{}}}, phantomlabel={#3}, breakable, parbox=false, fontupper=\itshape, lemmastyle, }
+%% corollary: fairly simple numbered block/structure
+\tcbset{ corollarystyle/.style={bwminimalstyle, runintitlestyle, blockspacingstyle, after title={\space}, } }
+\newtcolorbox[use counter*=cthm]{corollary}[3]{title={{Corollary~\thecthm\notblank{#1#2}{\space}{}\notblank{#1}{\space#1}{}\notblank{#2}{\space(#2)}{}}}, phantomlabel={#3}, breakable, parbox=false, fontupper=\itshape, corollarystyle, }
+%% fact: fairly simple numbered block/structure
+\tcbset{ factstyle/.style={bwminimalstyle, runintitlestyle, blockspacingstyle, after title={\space}, } }
+\newtcolorbox[use counter*=cthm]{fact}[3]{title={{Fact~\thecthm\notblank{#1#2}{\space}{}\notblank{#1}{\space#1}{}\notblank{#2}{\space(#2)}{}}}, phantomlabel={#3}, breakable, parbox=false, fontupper=\itshape, factstyle, }
+%%
+%% tcolorbox, with styles, for DEFINITION-LIKE
+%%
+%% definition: fairly simple numbered block/structure
+\tcbset{ definitionstyle/.style={bwminimalstyle, runintitlestyle, blockspacingstyle, after title={\space}, after upper={\space\space\hspace*{\stretch{1}}\(\lozenge\)}, } }
+\newtcolorbox[use counter*=cthm]{definition}[2]{title={{Definition~\thecthm\notblank{#1}{\space\space#1}{}}}, phantomlabel={#2}, breakable, parbox=false, definitionstyle, }
+%%
+%% tcolorbox, with styles, for REMARK-LIKE
+%%
+%% note: fairly simple numbered block/structure
+\tcbset{ notestyle/.style={bwminimalstyle, runintitlestyle, blockspacingstyle, after title={\space}, } }
+\newtcolorbox[use counter*=cthm]{note}[2]{title={{Note~\thecthm\notblank{#1}{\space\space#1}{}}}, phantomlabel={#2}, breakable, parbox=false, notestyle, }
+%%
+%% tcolorbox, with styles, for miscellaneous environments
+%%
+%% proof: title is a replacement
+\tcbset{ proofstyle/.style={bwminimalstyle, fonttitle=\normalfont\itshape, attach title to upper, after title={\space}, after upper={\space\space\hspace*{\stretch{1}}\(\blacksquare\)}
+} }
+\newtcolorbox{proofptx}[2]{title={\notblank{#1}{#1}{Proof.}}, phantom={\hypertarget{#2}{}}, breakable, parbox=false, proofstyle }
+%% Localize LaTeX supplied names (possibly none)
+\renewcommand*{\chaptername}{Chapter}
+%% "tcolorbox" environment for a single image, occupying entire \linewidth
+%% arguments are left-margin, width, right-margin, as multiples of
+%% \linewidth, and are guaranteed to be positive and sum to 1.0
+\tcbset{ imagestyle/.style={bwminimalstyle} }
+\NewTColorBox{image}{mmm}{imagestyle,left skip=#1\linewidth,width=#2\linewidth}
+%% Figures, Tables, Listings, Named Lists, Floats
+%% The [H]ere option of the float package fixes floats in-place,
+%% in deference to web usage, where floats are totally irrelevant
+%% You can remove some of this setup, to restore standard LaTeX behavior
+%% HOWEVER, numbering of figures/tables AND theorems/examples/remarks, etc
+%% may de-synchronize with the numbering in the HTML version
+%% You can remove the "placement={H}" option to allow flotation and
+%% preserve numbering, BUT the numbering may then appear "out-of-order"
+%% Floating environments: http://tex.stackexchange.com/questions/95631/
+\usepackage{float}
+\usepackage{newfloat}
+\usepackage{caption}%% Adjust stock figure environment so that it no longer floats
+\SetupFloatingEnvironment{figure}{fileext=lof,placement={H},within=section,name=Figure}
+\captionsetup[figure]{labelfont=bf}
+%% http://tex.stackexchange.com/questions/16195
+\makeatletter
+\let\c@figure\c@cthm
+\makeatother
+%% More flexible list management, esp. for references
+%% But also for specifying labels (i.e. custom order) on nested lists
+\usepackage{enumitem}
+%% hyperref driver does not need to be specified, it will be detected
+%% Footnote marks in tcolorbox have broken linking under
+%% hyperref, so it is necessary to turn off all linking
+%% It *must* be given as a package option, not with \hypersetup
+\usepackage[hyperfootnotes=false]{hyperref}
+%% Hyperlinking active in electronic PDFs, all links solid and blue
+\hypersetup{colorlinks=true,linkcolor=blue,citecolor=blue,filecolor=blue,urlcolor=blue}
+\hypersetup{pdftitle={Intro to Topology}}
+%% If you manually remove hyperref, leave in this next command
+\providecommand\phantomsection{}
+%% If tikz has been loaded, replace ampersand with \amp macro
+%% extpfeil package for certain extensible arrows,
+%% as also provided by MathJax extension of the same name
+%% NB: this package loads mtools, which loads calc, which redefines
+%%     \setlength, so it can be removed if it seems to be in the 
+%%     way and your math does not use:
+%%     
+%%     \xtwoheadrightarrow, \xtwoheadleftarrow, \xmapsto, \xlongequal, \xtofrom
+%%     
+%%     we have had to be extra careful with variable thickness
+%%     lines in tables, and so also load this package late
+\usepackage{extpfeil}
+%% Custom Preamble Entries, late (use latex.preamble.late)
+%% Begin: Author-provided packages
+%% (From  docinfo/latex-preamble/package  elements)
+%% End: Author-provided packages
+%% Begin: Author-provided macros
+%% (From  docinfo/macros  element)
+%% Plus three from MBX for XML characters
+\newcommand{\mc}{\mathcal}
+\newcommand{\tuple}[1]{\left\langle{#1}\right\rangle}
+\newcommand{\cl}{\operatorname{cl}}
+\newcommand{\lt}{<}
+\newcommand{\gt}{>}
+\newcommand{\amp}{&}
+%% End: Author-provided macros
+\begin{document}
+\frontmatter
+%% begin: half-title
+\thispagestyle{empty}
+{\centering
+\vspace*{0.28\textheight}
+{\Huge Intro to Topology}\\[2\baselineskip]
+{\LARGE Sample PreTeXt book}\\
+}
+\clearpage
+%% end:   half-title
+%% begin: adcard
+\thispagestyle{empty}
+\null%
+\clearpage
+%% end:   adcard
+%% begin: title page
+%% Inspired by Peter Wilson's "titleDB" in "titlepages" CTAN package
+\thispagestyle{empty}
+{\centering
+\vspace*{0.14\textheight}
+%% Target for xref to top-level element is ToC
+\addtocontents{toc}{\protect\hypertarget{book-4}{}}
+{\Huge Intro to Topology}\\[\baselineskip]
+{\LARGE Sample PreTeXt book}\\[3\baselineskip]
+{\Large Steven Clontz}\\}
+\clearpage
+%% end:   title page
+%% begin: copyright-page
+\thispagestyle{empty}
+\vspace*{\stretch{2}}
+\vspace*{\stretch{1}}
+\null\clearpage
+%% end:   copyright-page
+%% begin: table of contents
+%% Adjust Table of Contents
+\setcounter{tocdepth}{1}
+\renewcommand*\contentsname{Contents}
+\tableofcontents
+%% end:   table of contents
+\mainmatter
+%
+%
+\typeout{************************************************}
+\typeout{Chapter 1 Start with the Basics}
+\typeout{************************************************}
+%
+\begin{chapterptx}{Start with the Basics}{}{Start with the Basics}{}{}{chapter-14}
+%
+%
+\typeout{************************************************}
+\typeout{Section 1.1 Defining a topology}
+\typeout{************************************************}
+%
+\begin{sectionptx}{Defining a topology}{}{Defining a topology}{}{}{section-16}
+\hypertarget{p-18}{}%
+Here's a short paragraph.%
+\begin{definition}{}{definition-19}%
+\hypertarget{p-21}{}%
+Let \(X\) be a set, and let \(\mc T\subseteq \mc P(X)\) satisfy the following properties.%
+\leavevmode%
+\begin{enumerate}
+\item\hypertarget{li-25}{}\(\emptyset,X\in\mc T\).%
+\item\hypertarget{li-27}{}If \(\mc U\subseteq\mc T\), then \(\bigcup\mc U\in\mc T\).%
+\item\hypertarget{li-30}{}If \(U,V\in\mc T\), then \(U\cap V\in\mc T\).%
+\end{enumerate}
+\hypertarget{p-33}{}%
+Then \(\mc T\) is called a \terminology{topology} on \(X\), the pair \(\tuple{X,\mc T}\) is called a \terminology{topological space}, and elements \(U\in\mc T\) are called \terminology{open sets} of the space. (Usually \(\tuple{X,\mc T}\) is abbreviated to just \(X\) when the topology is known from context.)%
+\end{definition}
+\hypertarget{p-43}{}%
+Another short paragraph. Lorem ipsum, etc.%
+\begin{note}{}{note-44}%
+This note should be a slide, but only because slide=``true''.\end{note}
+\hypertarget{p-47}{}%
+This paragraph isn't important.%
+\par
+\hypertarget{p-48}{}%
+But this paragraph is, which is why we include it in a slide.%
+\begin{note}{}{note-49}%
+This note should not be a slide since it doesn't have a slide attribute and notes aren't designated in the docinfo.\end{note}
+\begin{theorem}{}{}{theorem-52}%
+\hypertarget{p-54}{}%
+Let \(X\) be any set. Then the following sets are topologies on \(X\).%
+\leavevmode%
+\begin{enumerate}
+\item\hypertarget{li-58}{}\(\mc T=\mc P(X)\) is called the \terminology{discrete topology}.%
+\item\hypertarget{li-61}{}\(\mc T=\{\emptyset,X\}\) is called the \terminology{indiscrete topology}.%
+\end{enumerate}
+\end{theorem}
+\begin{proofptx}{}{proof-64}
+\hypertarget{p-65}{}%
+Just check the things.%
+\end{proofptx}
+\begin{proposition}{}{}{proposition-66}%
+\hypertarget{p-68}{}%
+Let \(\mc T\) be a topology, and let \(\mc U\subseteq\mc T\) be finite. Then \(\bigcap\mc U\in\mc T\).%
+\end{proposition}
+\end{sectionptx}
+%
+%
+\typeout{************************************************}
+\typeout{Section 1.2 More advanced things}
+\typeout{************************************************}
+%
+\begin{sectionptx}{More advanced things}{}{More advanced things}{}{}{section-72}
+\begin{definition}{}{definition-74}%
+\hypertarget{p-76}{}%
+Suppose \(D\subseteq X\) and \(\cl D = X\). Then \(D\) is said to be \terminology{dense} in \(X\).%
+\end{definition}
+\begin{lemma}{}{}{lemma-82}%
+\hypertarget{p-84}{}%
+Lemmas are not included in the slides for some reason, but could be if they were added to the docinfo.%
+\end{lemma}
+\begin{theorem}{}{}{theorem-85}%
+\hypertarget{p-87}{}%
+A subset is dense if and only if it intersects every nonempty open set.%
+\end{theorem}
+\begin{corollary}{}{}{corollary-88}%
+\hypertarget{p-90}{}%
+A subset is dense if and only if every point of the space belongs to it or is a limit point of it. (Corollaries also don't show up in slides according to the docinfo though.)%
+\end{corollary}
+\end{sectionptx}
+\end{chapterptx}
+%
+%
+\typeout{************************************************}
+\typeout{Chapter 2 One more chapter}
+\typeout{************************************************}
+%
+\begin{chapterptx}{One more chapter}{}{One more chapter}{}{}{chapter-91}
+%
+%
+\typeout{************************************************}
+\typeout{Section 2.1 One more section}
+\typeout{************************************************}
+%
+\begin{sectionptx}{One more section}{}{One more section}{}{}{section-93}
+\begin{theorem}{}{}{theorem-95}%
+\hypertarget{p-97}{}%
+A PreTeXt example isn't sufficient without a long math equation.%
+\end{theorem}
+\begin{proposition}{}{}{proposition-98}%
+\hypertarget{p-100}{}%
+This equation appears in a slide.%
+%
+\begin{equation*}
+a^2+b^2=c^2
+\end{equation*}
+\end{proposition}
+\begin{fact}{}{}{fact-102}%
+\hypertarget{p-104}{}%
+This equation does not unless docinfo is edited.%
+%
+\begin{equation*}
+\int_0^1 6x^2\,dx=2
+\end{equation*}
+\end{fact}
+\end{sectionptx}
+\end{chapterptx}
+\end{document}

@@ -5,7 +5,6 @@
     \newcommand{\mc}{\mathcal}
     \newcommand{\tuple}[1]{\left\langle{#1}\right\rangle}
     \newcommand{\cl}{\operatorname{cl}}
-    \newcommand{\PreTeXt}{\text{Pre}\TeX{}\text{t}}
   </macros>
   </docinfo>
   <article>
@@ -133,7 +132,7 @@ slide=<q>true</q>.
         <slide>
           <theorem source-number="2.1.1">
             <statement>
-              <p>A <m>\PreTeXt</m> example isn't sufficient
+              <p>A PreTeXt example isn't sufficient
 without a long math equation.</p>
             </statement>
           </theorem>
