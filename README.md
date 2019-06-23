@@ -84,7 +84,7 @@ content within the book (e.g. theorems, paragraphs) that should
 appear as slides. This is done by way of adding the following
 attributes.
 
-- In `<docinfo slide_defaults="foo">`, replace `foo` with a
+- In `<docinfo slide-defaults="foo">`, replace `foo` with a
   pipe-delimited list of default environments to become single
   slides. For example, 
   `<docinfo slide_defaults="definition|theorem">`
