@@ -13,13 +13,13 @@
       <author>
         <personname>Andrew Rechnitzer</personname>
         <affiliation>UBC</affiliation>
-        <logo><image source="https://dummyimage.com/100/26943a/fff.png&amp;text=PreTeXt+Slides"/></logo>
+        <logo><image source="img/100-26943a.png"/></logo>
       </author>
 
       <author>
         <personname>Steven Clontz</personname>
         <affiliation>U South AL</affiliation>
-        <logo><image source="https://dummyimage.com/100/263196/fff.png&amp;text=PreTeXt+Slides"/></logo>
+        <logo><image source="img/100-263196.png"/></logo>
       </author>
 
       <event>Pretext hackery Portland</event>
@@ -59,7 +59,7 @@
     <title>Put stuff next to other stuff</title>
     <sidebyside width="45%">
     <p>
-      <image source="https://dummyimage.com/500/872694/fff.png&amp;text=PreTeXt+Slides"/>
+      <image source="img/500-872694.png"/>
     </p>
     <p>Thing two:
       <ul>
@@ -79,7 +79,7 @@
     <title>Put stuff next to other stuff 2 </title>
     <sidebyside width="30%" slide-step="true">
     <p>
-      <image source="https://dummyimage.com/500/cc7a37/fff.png&amp;text=PreTeXt+Slides"/>
+      <image source="img/500-cc7a37.png"/>
     </p>
     <p>
         Who puts 3 columns like this?
@@ -127,7 +127,7 @@
         <li><p>It is left as an exercise for the reader.</p></li>
       </ul>
     </p>
-    <image source="https://dummyimage.com/600x100/d91f79/fff.png&amp;text=PreTeXt+Slides" slide-step="true" />
+    <image source="img/600x100-d91f79.png" slide-step="true" />
   </slide>
 
 </section>

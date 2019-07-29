@@ -63,6 +63,16 @@ xsltproc -o examples/hello-world-slides.html --xinclude pretext-revealjs.xsl exa
 Visit <https://stevenclontz.github.io/pretext-slides/hello-world-slides.html>
 to see how these look.
 
+### pretext-beamer
+
+Run this within the `pretext-slides` folder to produce a Beamer slideshow:
+
+```
+xsltproc -o examples/hello-world-slides.tex --xinclude pretext-beamer.xsl examples/hello-world-slides.xml
+```
+
+Then run `cd examples; pdflatex hello-world-slides.tex` to build the PDF presentation.
+
 ## extract-slideshow
 
 Without any additional configuration, 

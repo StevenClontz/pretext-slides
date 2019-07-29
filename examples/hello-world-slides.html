@@ -16,29 +16,24 @@
       border-radius: 2px 10px 2px;
       padding: 4px;
     }
-    .definition {
+    .definition,.theorem,.activity {
       border-width: 0.5px;
       border-style: solid;
       border-radius: 2px 10px 2px;
-      background: #00608010;
       padding: 1%;
+      margin-bottom: 2em;
     }
-    .theorem, .corollary {
-      border-width: 0.5px;
-      border-style: solid;
-      border-radius: 2px 10px 2px;
+    .definition {
+      background: #00608010;
+    }
+    .theorem {
       background: #ff000010;
-      padding: 1%;
     }
     .proof {
       background: #ffffff90;
     }
     .activity {
-      border-width: 0.5px;
-      border-style: solid;
-      border-radius: 2px 10px 2px;
       background: #60800010;
-      padding: 1%;
     }
   </style>
 </head>
@@ -55,8 +50,8 @@
 <td align="center" style="border-bottom: 0px;">U South AL</td>
 </tr>
 <tr>
-<td align="center"><img src="https://dummyimage.com/100/26943a/fff.png&amp;text=PreTeXt+Slides"></td>
-<td align="center"><img src="https://dummyimage.com/100/263196/fff.png&amp;text=PreTeXt+Slides"></td>
+<td align="center"><img src="img/100-26943a.png"></td>
+<td align="center"><img src="img/100-263196.png"></td>
 </tr>
 </table></section><section><section><h2>PDX \(\iff\) PTX</h2>
 <div align="left"> <ul>
@@ -72,8 +67,8 @@
 </ul></p>
 </div></section><section><h2>Put stuff next to other stuff</h2>
 <div align="left"> <div style="display: table;">
-<div style="display:table-cell; vertical-align:top; width: 45%;"><p><img src="https://dummyimage.com/500/872694/fff.png&amp;text=PreTeXt+Slides"></p></div>
-<div style="display:table-cell; vertical-align:top; width: 45%;"><p>Thing two:<ul>
+<div style="display:table-cell; vertical-align:top; width: 45%;"><p><img src="img/500-872694.png"></p></div>
+<div style="display:table-cell; vertical-align:top; width: 45%;"><p>Thing two: <ul>
 <li><p>a bit of this.</p></li>
 <li><p>a bit of that.</p></li>
 <li><p>a bit of the other.</p></li>
@@ -82,9 +77,9 @@
 </div>
 </div></section><section><h2>Put stuff next to other stuff 2</h2>
 <div align="left"> <div style="display: table;">
-<div class="fragment" style="display:table-cell; vertical-align:top; width: 30%;"><p><img src="https://dummyimage.com/500/cc7a37/fff.png&amp;text=PreTeXt+Slides"></p></div>
+<div class="fragment" style="display:table-cell; vertical-align:top; width: 30%;"><p><img src="img/500-cc7a37.png"></p></div>
 <div class="fragment" style="display:table-cell; vertical-align:top; width: 30%;"><p>Who puts 3 columns like this?</p></div>
-<div class="fragment" style="display:table-cell; vertical-align:top; width: 30%;"><p>More stuff and bits<ul>
+<div class="fragment" style="display:table-cell; vertical-align:top; width: 30%;"><p>More stuff and bits <ul>
 <li><p>a bit of this.</p></li>
 <li><p>a bit of that.</p></li>
 <li><p>a bit of the other.</p></li>
@@ -95,11 +90,11 @@
 <div align="left"> <div class="theorem">
 <div>
 <h3>Theorem:
-      Cats and Mats.</h3>
+      Cats and Mats</h3>
 <p>The cat sits on the mat.</p>
 </div>
 <div class="proof">
-<article class="hiddenproof" id="proof-1"><a data-knowl="" class="id-ref" data-refid="hk-proof-1"><h6 class="heading"><span class="type">Proof.</span></h6></a></article><div id="hk-proof-1" class="hidden-content tex2jax_ignore"><article class="hiddenproof"><p><ul>
+<article class="hiddenproof"><a knowl="" class="id-ref" refid="hk-proof-1" id="proof-1"><h6 class="heading"><span class="type">Proof</span></h6></a></article><div id="hk-proof-1" class="hidden-content tex2jax_ignore"><article class="hiddenproof"><p><ul>
 <li class="fragment"><p>Take cat and place near mat.</p></li>
 <li class="fragment"><p>Wait until cat is sat.</p></li>
 <li class="fragment"><p>Attempt to lift mat without disturbing cat.</p></li>
@@ -109,17 +104,17 @@
 </div></section><section><h2>Now without proof</h2>
 <div align="left"> <div class="theorem"><div>
 <h3>Corollary:
-      Cats and bats.</h3>
+      Cats and bats</h3>
 <p>The cat eats the bat on the mat.</p>
 </div></div> <p><ul>
 <li class="fragment"><p>The proof is too long to fit in the margin here.</p></li>
 <li class="fragment"><p>It is left as an exercise for the reader.</p></li>
-</ul></p> <img src="https://dummyimage.com/600x100/d91f79/fff.png&amp;text=PreTeXt+Slides" class="fragment">
+</ul></p> <img src="img/600x100-d91f79.png" class="fragment">
 </div></section></section><section><section><h2>A bit of math</h2>
 <div align="left"> <div class="theorem">
 <div>
 <h3>Theorem:
-      Pythagorean Theorem.</h3>
+      Pythagorean Theorem</h3>
 <p>Let \(a,b\) be the lengths of the legs of a right triangle, and let \(c\) be the length of its hypotenuse. Then:</p>
 <div class="displaymath">
 \begin{equation*}
@@ -128,7 +123,7 @@ a^2+b^2=c^2
 </div>
 </div>
 <div class="proof">
-<article class="hiddenproof" id="proof-2"><a data-knowl="" class="id-ref" data-refid="hk-proof-2"><h6 class="heading"><span class="type">Proof.</span></h6></a></article><div id="hk-proof-2" class="hidden-content tex2jax_ignore"><article class="hiddenproof"><p>Look it up.</p></article></div>
+<article class="hiddenproof"><a knowl="" class="id-ref" refid="hk-proof-2" id="proof-2"><h6 class="heading"><span class="type">Proof</span></h6></a></article><div id="hk-proof-2" class="hidden-content tex2jax_ignore"><article class="hiddenproof"><p>Look it up.</p></article></div>
 </div>
 </div>
 </div></section></section>
@@ -137,7 +132,6 @@ a^2+b^2=c^2
     Reveal.initialize({
     				controls: false,
     				progress: false,
-    				center: false,
     				hash: true,
     				transition: 'fade',
             width: "80%",

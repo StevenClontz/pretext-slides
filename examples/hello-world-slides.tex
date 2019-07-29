@@ -1,0 +1,162 @@
+\documentclass[11pt, compress]{beamer}
+\usepackage{amsmath}
+\usetheme{Boadilla}
+\usepackage[xparse, raster]{tcolorbox}
+\tcbset{colback=white, colframe=white}
+\NewTColorBox{image}{mmm}{boxrule=0.25pt, colframe=gray, left skip=#1\linewidth,width=#2\linewidth}
+\RenewTColorBox{definition}{m}{colback=teal!30!white, colbacktitle=teal!30!white, coltitle=black, colframe=gray, boxrule=0.5pt, sharp corners=downhill, titlerule = 0.25pt, title={#1}}
+\RenewTColorBox{theorem}{m}{colback=pink!30!white, colbacktitle=pink!30!white, coltitle=black, colframe=gray, boxrule=0.5pt, sharp corners=downhill, titlerule = 0.25pt, title={#1}}
+\RenewTColorBox{proof}{}{boxrule=0.25pt, colframe=gray, colback=white, before upper={Proof:}, after upper={\qed}}
+\newcommand{\terminology}[1]{\textbf{#1}}\newcommand{\lt}{<}
+\newcommand{\gt}{>}
+\newcommand{\amp}{&}
+\title{Hello World!}
+\subtitle{Sample PreTeXt slides}
+\begin{document}
+\begin{frame}
+\maketitle 
+\end{frame}
+ 
+\begin{frame}
+\frametitle{Overview}
+\tableofcontents 
+\end{frame}
+ 
+
+\section{}
+\begin{frame}
+\frametitle{PDX \(\iff\) PTX}
+ \begin{itemize}
+\item{}
+One item
+
+\item{}
+Another item
+
+\item{}
+A really long item which is really far too long to be an item in a talk. Points should really be only a single line unless they are really important.
+\end{itemize}\end{frame}
+ 
+\begin{frame}
+\frametitle{A second slide here}
+ 
+Words and stuff 
+\pause 
+\begin{itemize}[<+->]
+\item{}
+First thing
+
+\item{}
+Second thing
+
+\item{}
+Third thing
+\end{itemize}\end{frame}
+ 
+\begin{frame}
+\frametitle{Put stuff next to other stuff}
+ \begin{tcbraster}[arc=0pt, raster columns=2, raster equal height=rows, raster force size=false, raster column skip=0ex] 
+\begin{tcolorbox}[valign=top, width=0.5\textwidth]
+
+\begin{figure}\centering\includegraphics[width=1\linewidth]{img/500-872694.png}
+\end{figure}\end{tcolorbox}
+ \begin{tcolorbox}[valign=top, width=0.5\textwidth]
+
+Thing two: \begin{itemize}
+\item{}
+a bit of this.
+
+\item{}
+a bit of that.
+
+\item{}
+a bit of the other.
+
+\item{}
+and a very long and tedious part that really should not be part of a talk but it snuck in.
+\end{itemize}\end{tcolorbox}
+ \end{tcbraster} 
+\end{frame}
+ 
+\begin{frame}
+\frametitle{Put stuff next to other stuff 2}
+ \begin{tcbraster}[arc=0pt, raster columns=3, raster equal height=rows, raster force size=false, raster column skip=0ex] 
+\pause 
+\begin{tcolorbox}[valign=top, width=0.333333333333333\textwidth]
+
+\begin{figure}\centering\includegraphics[width=1\linewidth]{img/500-cc7a37.png}
+\end{figure}\end{tcolorbox}
+ \pause 
+\begin{tcolorbox}[valign=top, width=0.333333333333333\textwidth]
+
+Who puts 3 columns like this?\end{tcolorbox}
+ \pause 
+\begin{tcolorbox}[valign=top, width=0.333333333333333\textwidth]
+
+More stuff and bits \begin{itemize}
+\item{}
+a bit of this.
+
+\item{}
+a bit of that.
+
+\item{}
+a bit of the other.
+
+\item{}
+and yet more bit.
+\end{itemize}\end{tcolorbox}
+ \end{tcbraster} 
+\end{frame}
+ 
+
+
+\section{}
+\begin{frame}
+\frametitle{Another column of slides}
+ \begin{theorem}{Theorem: Cats and Mats}
+The cat sits on the mat.\end{theorem}
+\begin{proof}
+\pause 
+\begin{itemize}[<+->]
+\item{}
+Take cat and place near mat.
+
+\item{}
+Wait until cat is sat.
+
+\item{}
+Attempt to lift mat without disturbing cat.
+\end{itemize}\end{proof}\end{frame}
+ 
+\begin{frame}
+\frametitle{Now without proof}
+ \begin{theorem}{Corollary: Cats and bats}
+The cat eats the bat on the mat.\end{theorem}
+ 
+\pause 
+\begin{itemize}[<+->]
+\item{}
+The proof is too long to fit in the margin here.
+
+\item{}
+It is left as an exercise for the reader.
+\end{itemize} \begin{figure}\centering\includegraphics[width=1\linewidth]{img/600x100-d91f79.png}
+\end{figure}\end{frame}
+ 
+
+
+\section{}
+\begin{frame}
+\frametitle{A bit of math}
+ \begin{theorem}{Theorem: Pythagorean Theorem}
+Let \(a,b\) be the lengths of the legs of a right triangle, and let \(c\) be the length of its hypotenuse. Then:%
+\begin{equation*}
+a^2+b^2=c^2
+\end{equation*}
+\end{theorem}
+\begin{proof}
+Look it up.\end{proof}\end{frame}
+ 
+
+\end{document}
