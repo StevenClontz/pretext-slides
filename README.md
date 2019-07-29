@@ -60,7 +60,7 @@ Run this within the `pretext-slides` folder to produce a Reveal.js slideshow:
 xsltproc -o examples/hello-world-slides.html --xinclude pretext-revealjs.xsl examples/hello-world-slides.xml
 ```
 
-Visit <https://stevenclontz.github.io/pretext-slides/hello-world-slides.html>
+Visit <https://stevenclontz.github.io/pretext-slides/examples/hello-world-slides.html>
 to see how these look.
 
 ### pretext-beamer
@@ -125,10 +125,10 @@ using the following command.
 xsltproc -o examples/hello-world-book-slides.xml --xinclude extract-slideshow.xsl examples/hello-world-book.xml
 ```
 
-Visit <https://stevenclontz.github.io/pretext-slides/html/> or
-<https://stevenclontz.github.io/pretext-slides/hello-world-book.pdf> to
+Visit <https://stevenclontz.github.io/pretext-slides/examples/html/> or
+<https://stevenclontz.github.io/pretext-slides/examples/hello-world-book.pdf> to
 see the compiled sample book, and visit
-<https://stevenclontz.github.io/pretext-slides/hello-world-book-slides.html>
+<https://stevenclontz.github.io/pretext-slides/examples/hello-world-book-slides.html>
 to view the corresponding slides.
 
 ## Previewing the slideshow in your browser.
