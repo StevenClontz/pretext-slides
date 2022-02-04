@@ -1,3 +1,9 @@
+This repository is rather stale. I'm working on this idea still
+for https://sites.google.com/southalabama.edu/tbil/tbil-resource-library
+but it's nowhere near ready for use with arbitrary
+PreTeXt books. Hopefully I'll have time to revisit this
+someday. -S
+
 # pretext-slides
 
 This is the (hopefully) temporary home of slide-related 
